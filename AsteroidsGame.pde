@@ -1,14 +1,18 @@
 //your variable declarations here
+ArrayList <Asteroid> rob = new ArrayList();
 Spaceship tim;
 Star bob[]= new Star[500];
 public void setup() 
 {
   background(0);
-  size(500,500);
+  size(1000,1000);
   tim = new Spaceship();
  for (int i =0; i< bob.length; i++)
   {
     bob[i] = new Star();
+  }
+  for(int i= 0; i<20; i++){
+    rob.add(new Asteroid());
   }
   //your code here
 }
@@ -20,6 +24,14 @@ public void draw()
   for (int i =0; i< bob.length; i++)
   {
     bob[i].show();
+
+  }
+  for(int i= 0; i<20; i++){
+    rob.get(i).move();
+    rob.get(i).show();
+    
+    
+    
   }
 }
 public void keyPressed(){
@@ -39,6 +51,9 @@ public void keyPressed(){
   tim.setDirectionX(0);
   tim.setDirectionY(0);
   tim.setPointDirection((int)(Math.random()*360));
-
+for (int i =0; i< bob.length; i++)
+  {
+    bob[i] = new Star();
+  }
  }
 }

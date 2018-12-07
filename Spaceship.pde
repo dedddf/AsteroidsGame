@@ -22,6 +22,14 @@ class Spaceship extends Floater
    myPointDirection=0;
    myColor = 255;
  }
+ public void newStr(){
+   for (int i =0; i< bob.length; i++)
+  {
+    bob[i] = new Star();
+  }
+   
+ }
+ 
   public void setX(int b) {
     myCenterX = b;
   }
@@ -52,11 +60,34 @@ class Spaceship extends Floater
   public double getPointDirection(){
     return myPointDirection;
   }
-  /*
-  abstract public void setDirectionX(double x);   
-   abstract public double getDirectionX();   
-   abstract public void setDirectionY(double y);   
-   abstract public double getDirectionY();   
-   abstract public void setPointDirection(int degrees);   
-   abstract public double getPointDirection();*/
+    public void move ()   //move the floater in the current direction of travel
+  {      
+    //change the x and y coordinates by myDirectionX and myDirectionY       
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;     
+
+    //wrap around screen    
+    if(myCenterX >width)
+    {     
+      myCenterX = 0;   
+      newStr();
+      
+    }    
+    else if (myCenterX<0)
+    {     
+      myCenterX = width;    
+      newStr();
+    }    
+    if(myCenterY >height)
+    {    
+      myCenterY = 0;    
+      newStr();
+    } 
+    
+    else if (myCenterY < 0)
+    {     
+      myCenterY = height;  
+      newStr();
+    }   
+  }   
 }
