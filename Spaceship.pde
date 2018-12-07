@@ -60,6 +60,9 @@ class Spaceship extends Floater
   public double getPointDirection(){
     return myPointDirection;
   }
+  public void setColor(int r){
+    myColor = r;
+  }
     public void move ()   //move the floater in the current direction of travel
   {      
     //change the x and y coordinates by myDirectionX and myDirectionY       

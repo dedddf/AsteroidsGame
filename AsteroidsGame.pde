@@ -2,6 +2,7 @@
 ArrayList <Asteroid> rob = new ArrayList();
 Spaceship tim;
 Star bob[]= new Star[500];
+int shipC = 0;
 public void setup() 
 {
   background(0);
@@ -11,7 +12,7 @@ public void setup()
   {
     bob[i] = new Star();
   }
-  for(int i= 0; i<20; i++){
+  for(int i= 0; i<30; i++){
     rob.add(new Asteroid());
   }
   //your code here
@@ -26,13 +27,35 @@ public void draw()
     bob[i].show();
 
   }
-  for(int i= 0; i<20; i++){
-    rob.get(i).move();
-    rob.get(i).show();
-    
-    
-    
+  for(int i= 0; i<rob.size(); i++){
+    float dist= dist(tim.getX(),tim.getY(),rob.get(i).getX(),rob.get(i).getY());
+    if(dist<10){
+      rob.remove(i);
+      shipC++;
+    }
+  rob.get(i).move();
+  rob.get(i).show();
+
   }
+  if(shipC==2){
+    tim.setColor(#0526fc);
+  }
+
+  if(shipC==3){
+    tim.setColor(#05fc47);
+  }
+  if(shipC==4){
+    tim.setColor(#fcf805);
+  }
+  if(shipC==5){
+    tim.setColor(#fc0505);
+  }
+    
+    
+    
+    
+      
+ 
 }
 public void keyPressed(){
   

@@ -1,6 +1,7 @@
 class Asteroid extends Floater{
   
   protected int rotSpd;
+
   
   public Asteroid(){
    corners =3;
@@ -12,10 +13,10 @@ class Asteroid extends Floater{
    yCorners[1]= 0;
    xCorners[2] = -8;
    yCorners[2] = 8;
-   myCenterX =(int)(Math.random()*500);
-   myCenterY = (int)(Math.random()*500);
-   myDirectionX= (int)(Math.random()*11)-5;
-   myDirectionY = (int)(Math.random()*11)-5;
+   myCenterX =(int)(Math.random()*1000);
+   myCenterY = (int)(Math.random()*1000);
+   myDirectionX= (int)(Math.random()*8)-3;
+   myDirectionY = (int)(Math.random()*8)-3;
    myPointDirection=0;
    myColor =#5e0507;
    rotSpd=((int)(Math.random()*11)-6);
