@@ -3,16 +3,18 @@ ArrayList <Asteroid> rob = new ArrayList();
 Spaceship tim;
 Star bob[]= new Star[500];
 int shipC = 0;
+Bullet Bill;
 public void setup() 
 {
   background(0);
-  size(1000,1000);
+  fullScreen();
+  Bill = new Bullet();
   tim = new Spaceship();
- for (int i =0; i< bob.length; i++)
+  for (int i =0; i< bob.length; i++)
   {
     bob[i] = new Star();
   }
-  for(int i= 0; i<30; i++){
+  for (int i= 0; i<30; i++) {
     rob.add(new Asteroid());
   }
   //your code here
@@ -25,58 +27,52 @@ public void draw()
   for (int i =0; i< bob.length; i++)
   {
     bob[i].show();
-
   }
-  for(int i= 0; i<rob.size(); i++){
-    float dist= dist(tim.getX(),tim.getY(),rob.get(i).getX(),rob.get(i).getY());
-    if(dist<10){
+  for (int i= 0; i<rob.size(); i++) {
+    float dist= dist(tim.getX(), tim.getY(), rob.get(i).getX(), rob.get(i).getY());
+    if (dist<10) {
       rob.remove(i);
       shipC++;
     }
-  rob.get(i).move();
-  rob.get(i).show();
-
+    rob.get(i).move();
+    rob.get(i).show();
   }
-  if(shipC==2){
+  if (shipC==2) {
     tim.setColor(#0526fc);
   }
 
-  if(shipC==3){
+  if (shipC==3) {
     tim.setColor(#05fc47);
   }
-  if(shipC==4){
+  if (shipC==4) {
     tim.setColor(#fcf805);
   }
-  if(shipC==5){
+  if (shipC==5) {
     tim.setColor(#fc0505);
   }
-    
-    
-    
-    
-      
  
+     
 }
-public void keyPressed(){
-  
- if(key == 'e'||key == 'e'){
-   tim.turn(3);
- }
- if(key == 'q'||key == 'Q'){
-    tim.turn(-3);
- }
- if(key == 'w'||key == 'W'){
- tim.accelerate(0.2);
- }
-  if(key == 'r'||key == 'R'){
-  tim.setX((int)(Math.random()*500));
-  tim.setY((int)(Math.random()*500));
-  tim.setDirectionX(0);
-  tim.setDirectionY(0);
-  tim.setPointDirection((int)(Math.random()*360));
-for (int i =0; i< bob.length; i++)
-  {
-    bob[i] = new Star();
+public void keyPressed() {
+
+  if (key == 'e'||key == 'e') {
+    tim.turn(3);
   }
- }
+  if (key == 'q'||key == 'Q') {
+    tim.turn(-3);
+  }
+  if (key == 'w'||key == 'W') {
+    tim.accelerate(0.2);
+  }
+  if (key == 'r'||key == 'R') {
+    tim.setX((int)(Math.random()*500));
+    tim.setY((int)(Math.random()*500));
+    tim.setDirectionX(0);
+    tim.setDirectionY(0);
+    tim.setPointDirection((int)(Math.random()*360));
+    for (int i =0; i< bob.length; i++){
+    
+      bob[i] = new Star();
+    }
+  }
 }
