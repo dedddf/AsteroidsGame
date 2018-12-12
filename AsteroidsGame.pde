@@ -5,10 +5,17 @@ Spaceship tim;
 Star bob[]= new Star[500];
 int shipC = 0;
 
+Bullet Bill;
+
 public void setup() 
 {
   background(0);
   fullScreen();
+
+  tim = new Spaceship();
+
+
+  //Bill = new Bullet();
   tim = new Spaceship();
 
   for (int i =0; i< bob.length; i++)
@@ -36,6 +43,7 @@ public void draw()
     rob.get(i).move();
     rob.get(i).show();
   }
+
   for (int i =0; i< bill.size(); i++)
   {
     bill.get(i).show();
@@ -43,6 +51,7 @@ public void draw()
   }
   tim.show();
   tim.move();
+
 
   if (shipC==2) {
     tim.setColor(#0526fc);
@@ -58,18 +67,21 @@ public void draw()
     tim.setColor(#fc0505);
   }
 }
+
 public void keyPressed() {
 
-  if (key == 'd'||key == 'D') {
+  if (key == 'e'||key == 'e') {
     tim.turn(3);
   }
-  if (key == 'a'||key == 'A') {
+  if (key == 'q'||key == 'Q') {
+
     tim.turn(-3);
   }
   if (key == 'w'||key == 'W') {
     tim.accelerate(0.2);
   }
   if (key == 'r'||key == 'R') {
+
     tim.setX((int)(Math.random()*width));
     tim.setY((int)(Math.random()*height));
     tim.setDirectionX(0);
@@ -81,15 +93,18 @@ public void keyPressed() {
     }
   }
   if (key == 'q'||key == 'Q') {
-      tim.turn(-3);
-      tim.accelerate(0.2);
-    }
-    if (key == 'e'||key == 'E') {
-      tim.turn(3);
-      tim.accelerate(0.2);
-    }
-  
+    tim.turn(-3);
+    tim.accelerate(0.2);
+  }
+  if (key == 'e'||key == 'E') {
+    tim.turn(3);
+    tim.accelerate(0.2);
+  }
+
   if (key == ' ') {
     bill.add(new Bullet(tim));
   }
+
+ 
+  
 }
