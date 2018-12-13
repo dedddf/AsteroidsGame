@@ -6,15 +6,11 @@ class Spaceship extends Floater
   protected double myPointDirection;*/
 { 
  public Spaceship(){
-   corners =3;
-   xCorners = new int [corners];
-   yCorners = new int [corners];
-   xCorners[0] = -8;
-   yCorners[0] = -8;
-   xCorners[1] = 16;
-   yCorners[1]= 0;
-   xCorners[2] = -8;
-   yCorners[2] = 8;
+   corners =4;
+   int[] xS  ={-15, 24,-15,-3};
+   int[] yS  ={-15, 0,15,0};
+   xCorners = xS;
+   yCorners = yS;
    myCenterX = 100;
    myCenterY = 100;
    myDirectionX= 0;

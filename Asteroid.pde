@@ -1,9 +1,17 @@
+
 class Asteroid extends Floater{
   
   protected int rotSpd;
 
   
   public Asteroid(){
+
+   corners =6;
+   int[] xB  ={-22, 14,10,23,12,-22};
+   int[] yB  ={-16, -16,5,0,20,-18};
+   xCorners = xB;
+   yCorners = yB;
+
    corners =3;
    xCorners = new int [corners];
    yCorners = new int [corners];
@@ -13,6 +21,7 @@ class Asteroid extends Floater{
    yCorners[1]= 0;
    xCorners[2] = -8;
    yCorners[2] = 8;
+
    myCenterX =(int)(Math.random()*width);
    myCenterY = (int)(Math.random()*height);
    myDirectionX= (int)(Math.random()*8)-3;

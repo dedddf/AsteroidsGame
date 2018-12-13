@@ -1,15 +1,23 @@
 //your variable declarations here
 ArrayList <Asteroid> rob = new ArrayList();
+ArrayList <Bullet> bill  = new ArrayList();
 Spaceship tim;
 Star bob[]= new Star[500];
 int shipC = 0;
+
 Bullet Bill;
+
 public void setup() 
 {
   background(0);
   fullScreen();
-  Bill = new Bullet();
+
   tim = new Spaceship();
+
+
+  //Bill = new Bullet();
+  tim = new Spaceship();
+
   for (int i =0; i< bob.length; i++)
   {
     bob[i] = new Star();
@@ -22,8 +30,6 @@ public void setup()
 public void draw() 
 {
   background(0);
-  tim.show();
-  tim.move();
   for (int i =0; i< bob.length; i++)
   {
     bob[i].show();
@@ -37,6 +43,16 @@ public void draw()
     rob.get(i).move();
     rob.get(i).show();
   }
+
+  for (int i =0; i< bill.size(); i++)
+  {
+    bill.get(i).show();
+    bill.get(i).move();
+  }
+  tim.show();
+  tim.move();
+
+
   if (shipC==2) {
     tim.setColor(#0526fc);
   }
@@ -50,29 +66,45 @@ public void draw()
   if (shipC==5) {
     tim.setColor(#fc0505);
   }
- 
-     
 }
+
 public void keyPressed() {
 
   if (key == 'e'||key == 'e') {
     tim.turn(3);
   }
   if (key == 'q'||key == 'Q') {
+
     tim.turn(-3);
   }
   if (key == 'w'||key == 'W') {
     tim.accelerate(0.2);
   }
   if (key == 'r'||key == 'R') {
-    tim.setX((int)(Math.random()*500));
-    tim.setY((int)(Math.random()*500));
+
+    tim.setX((int)(Math.random()*width));
+    tim.setY((int)(Math.random()*height));
     tim.setDirectionX(0);
     tim.setDirectionY(0);
     tim.setPointDirection((int)(Math.random()*360));
-    for (int i =0; i< bob.length; i++){
-    
+    for (int i =0; i< bob.length; i++) {
+
       bob[i] = new Star();
     }
   }
+  if (key == 'q'||key == 'Q') {
+    tim.turn(-3);
+    tim.accelerate(0.2);
+  }
+  if (key == 'e'||key == 'E') {
+    tim.turn(3);
+    tim.accelerate(0.2);
+  }
+
+  if (key == ' ') {
+    bill.add(new Bullet(tim));
+  }
+
+ 
+  
 }
