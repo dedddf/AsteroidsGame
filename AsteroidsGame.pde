@@ -10,7 +10,7 @@ Bullet Bill;
 public void setup() 
 {
   background(0);
-  fullScreen();
+  size(500,500);
 
   tim = new Spaceship();
 
