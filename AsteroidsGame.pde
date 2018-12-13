@@ -35,8 +35,8 @@ public void draw()
     bob[i].show();
   }
   for (int i= 0; i<rob.size(); i++) {
-    float dist= dist(tim.getX(), tim.getY(), rob.get(i).getX(), rob.get(i).getY());
-    if (dist<10) {
+    float distZ= dist(tim.getX(), tim.getY(), rob.get(i).getX(), rob.get(i).getY());
+    if (distZ<10) {
       rob.remove(i);
       shipC++;
     }
